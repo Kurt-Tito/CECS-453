@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="100dp"
+    tools:context=".CreateUserActivity">
+
+    <LinearLayout
+        android:layout_width="400dp"
+        android:layout_height="50dp">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="25dp"
+            android:text="Username: " />
+
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="25dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="400dp"
+        android:layout_height="50dp">
+
+        <TextView
+            android:layout_width="75dp"
+            android:layout_height="25dp"
+            android:text="Password: " />
+
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="25dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="400dp"
+        android:layout_height="50dp">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="25dp"
+            android:text="Re-Type Pass: " />
+
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="25dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="400dp"
+        android:layout_height="50dp">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="25dp"
+            android:text="First Name: " />
+
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="25dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="400dp"
+        android:layout_height="50dp">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="25dp"
+            android:text="Last Name: " />
+
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="25dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="400dp"
+        android:layout_height="50dp">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="25dp"
+            android:text="Email: " />
+
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="25dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="400dp"
+        android:layout_height="50dp">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="25dp"
+            android:text="Age: " />
+
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="25dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="400dp"
+        android:layout_height="50dp">
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:text="BACK"
+            android:layout_marginLeft="25dp"/>
+        
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:text="SAVE"
+            android:layout_marginLeft="25dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>
