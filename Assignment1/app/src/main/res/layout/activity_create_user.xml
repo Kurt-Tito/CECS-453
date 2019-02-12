@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
+    android:background="@drawable/bluegradient"
     tools:context=".CreateUserActivity">
 
     <LinearLayout
@@ -17,11 +18,11 @@
             android:layout_width="100dp"
             android:layout_height="25dp"
             android:layout_marginLeft="25dp"
-            android:text="Username: " />
+            android:text="@string/text_username" />
 
         <EditText
             android:id="@+id/editTextCreateUsername"
-            android:layout_width="250dp"
+            android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginLeft="50dp" />
 
@@ -36,12 +37,12 @@
             android:layout_width="75dp"
             android:layout_height="25dp"
             android:layout_marginLeft="25dp"
-            android:text="Password: " />
+            android:text="@string/text_password" />
 
         <EditText
             android:id="@+id/editTextCreatePassword"
             android:inputType="textPassword"
-            android:layout_width="250dp"
+            android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginLeft="75dp" />
 
@@ -56,12 +57,12 @@
             android:layout_width="100dp"
             android:layout_height="25dp"
             android:layout_marginLeft="25dp"
-            android:text="Re-Type Pass: " />
+            android:text="@string/text_confirmPassword" />
 
         <EditText
             android:id="@+id/editTextConfirmCreatePassword"
             android:inputType="textPassword"
-            android:layout_width="250dp"
+            android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginLeft="50dp"/>
 
@@ -76,11 +77,11 @@
             android:layout_width="100dp"
             android:layout_height="25dp"
             android:layout_marginLeft="25dp"
-            android:text="First Name: " />
+            android:text="@string/text_firstName" />
 
         <EditText
             android:id="@+id/editTextCreateFirstName"
-            android:layout_width="250dp"
+            android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginLeft="50dp"/>
 
@@ -95,11 +96,11 @@
             android:layout_width="100dp"
             android:layout_height="25dp"
             android:layout_marginLeft="25dp"
-            android:text="Last Name: " />
+            android:text="@string/text_lastName" />
 
         <EditText
             android:id="@+id/editTextCreateLastName"
-            android:layout_width="250dp"
+            android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginLeft="50dp"/>
 
@@ -114,11 +115,11 @@
             android:layout_width="100dp"
             android:layout_height="25dp"
             android:layout_marginLeft="25dp"
-            android:text="Email: " />
+            android:text="@string/text_email" />
 
         <EditText
             android:id="@+id/editTextCreateEmail"
-            android:layout_width="250dp"
+            android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginLeft="50dp"/>
 
@@ -133,12 +134,12 @@
             android:layout_width="100dp"
             android:layout_height="25dp"
             android:layout_marginLeft="25dp"
-            android:text="Age: " />
+            android:text="@string/text_age" />
 
         <EditText
             android:id="@+id/editTextCreateAge"
             android:inputType="number"
-            android:layout_width="250dp"
+            android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginLeft="50dp"/>
 
@@ -153,14 +154,14 @@
             android:id="@+id/buttonCancel"
             android:layout_width="150dp"
             android:layout_height="50dp"
-            android:text="CANCEL"
+            android:text="@string/button_cancel"
             android:layout_marginLeft="25dp"/>
         
         <Button
             android:id="@+id/buttonSave"
             android:layout_width="150dp"
             android:layout_height="50dp"
-            android:text="SAVE"
+            android:text="@string/button_save"
             android:layout_marginLeft="25dp"/>
 
     </LinearLayout>

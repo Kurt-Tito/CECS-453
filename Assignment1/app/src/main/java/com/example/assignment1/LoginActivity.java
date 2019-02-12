@@ -38,7 +38,8 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (username.equals(editTextUsername.getText().toString()) && password.equals(editTextPassword.getText().toString()))
                 {
-                    Toast.makeText(LoginActivity.this, "LOGIN SUCCESSFUL", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Login is successful", Toast.LENGTH_SHORT).show();
+                    tryCount = 0;
                 }
                 else if (tryCount == tryMax)
                 {
@@ -51,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 else if (!username.equals(editTextUsername.getText().toString()) || !(password.equals(editTextPassword.getText().toString())))
                 {
-                    Toast.makeText(LoginActivity.this, "INVALID USERNAME OR PASSWORD", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Username or password is incorrect", Toast.LENGTH_SHORT).show();
                     tryCount++;
                 }
             }

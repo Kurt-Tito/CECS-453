@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/greengradient"
     tools:context=".LoginActivity">
 
     <TextView
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="User Name: "
+        android:text="@string/text_username"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -22,7 +23,7 @@
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Password: "
+        android:text="@string/text_password"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -43,6 +44,7 @@
 
     <EditText
         android:id="@+id/editTextPassword"
+        android:inputType="textPassword"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -55,19 +57,20 @@
     <Button
         android:id="@+id/buttonLogin"
         android:layout_height="wrap_content"
-        android:text="LOGIN"
+        android:text="@string/button_login"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginLeft="150dp"
         android:layout_marginTop="100dp"
-        android:layout_width="150dp" />
+        android:layout_width="150dp"
+        />
 
     <Button
         android:id="@+id/buttonNewUser"
         android:layout_height="wrap_content"
-        android:text="NEW USER"
+        android:text="@string/button_newUser"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"

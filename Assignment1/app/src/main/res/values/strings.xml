@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Assignment1</string>
+
+    <string name="text_username">Username:</string>
+    <string name="text_password">Password:</string>
+    <string name="button_newUser">NEW USER</string>
+    <string name="button_login">LOGIN</string>
+
+    <string name="text_confirmPassword">Re-Type Pass:</string>
+    <string name="text_firstName">First Name:</string>
+    <string name="text_lastName">Last Name:</string>
+    <string name="text_email">Email:</string>
+    <string name="text_age">Age:</string>
+    <string name="button_cancel">CANCEL</string>
+    <string name="button_save">SAVE</string>>
+
 </resources>
