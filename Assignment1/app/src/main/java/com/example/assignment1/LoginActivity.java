@@ -10,10 +10,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+
 public class LoginActivity extends AppCompatActivity {
 
-    private String username = "desusite";
-    private String password = "123abc";
+    //private String username = "desusite";
+    //private String password = "123abc";
 
     /* Declare Views */
     private EditText editTextUsername;
@@ -36,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (username.equals(editTextUsername.getText().toString()) && password.equals(editTextPassword.getText().toString()))
+                if (checkUser(editTextUsername.getText().toString(), editTextPassword.getText().toString()))
                 {
                     Toast.makeText(LoginActivity.this, "Login is successful", Toast.LENGTH_SHORT).show();
                     tryCount = 0;
@@ -50,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     finish();
                 }
-                else if (!username.equals(editTextUsername.getText().toString()) || !(password.equals(editTextPassword.getText().toString())))
+                else if (!checkUser(editTextUsername.getText().toString(), editTextPassword.getText().toString()))
                 {
                     Toast.makeText(LoginActivity.this, "Username or password is incorrect", Toast.LENGTH_SHORT).show();
                     tryCount++;
@@ -74,5 +79,56 @@ public class LoginActivity extends AppCompatActivity {
 
         buttonLogin = (Button) findViewById(R.id.buttonLogin);
         buttonNewUser = (Button) findViewById(R.id.buttonNewUser);
+    }
+
+    /*check if username and password match and is in DB */
+    private boolean checkUser(String username, String password)
+    {
+        String db ="";
+        int ln_user = 0;
+        int ln_password = 0;
+
+        boolean validateUsername = false;
+        boolean validatePassword = false;
+
+        try {
+
+            FileInputStream file = openFileInput("db.txt");
+            InputStreamReader reader = new InputStreamReader(file);
+            BufferedReader bufferedReader = new BufferedReader(reader);
+            StringBuilder stringBuilder = new StringBuilder();
+            String receiveString = "";
+
+            while ((receiveString = bufferedReader.readLine()) != null) {
+
+                ln_user++;
+                if (receiveString.contains(username))
+                {
+                    Log.e("usernameline", receiveString +" ln: " +ln_user);
+                    validateUsername = true;
+                    break;
+                }
+            }
+
+            while ((receiveString = bufferedReader.readLine()) != null) {
+
+                ln_password++;
+                if (receiveString.contains(password))
+                {
+                    Log.e("passwordline", receiveString +" ln:" +ln_password);
+                    validatePassword = true;
+                    break;
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        if (validateUsername && validatePassword)
+            return true;
+        else
+            return false;
+
     }
 }
