@@ -30,10 +30,15 @@ public class LoginActivity extends AppCompatActivity {
     private int tryCount = 0;
     private int tryMax = 2;
 
+    //public static DBModel model = new DBModel();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        /*Init DB Model */
+        //final DBModel model = new DBModel();
 
         /*Initialize Views */
         setUPViews();
@@ -41,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (checkUser(editTextUsername.getText().toString(), editTextPassword.getText().toString()))
+                if (DBModel.model.DBcheckUser(LoginActivity.this, editTextUsername.getText().toString(), editTextPassword.getText().toString()))
                 {
                     Toast.makeText(LoginActivity.this, "Login is successful", Toast.LENGTH_SHORT).show();
                     tryCount = 0;

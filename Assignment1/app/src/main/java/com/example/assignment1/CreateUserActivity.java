@@ -73,6 +73,7 @@ public class CreateUserActivity extends AppCompatActivity {
                     /* Insert Save Function */
                     saveData();
                     readData();
+                    finish();
                 }
             }
         });
@@ -181,95 +182,21 @@ public class CreateUserActivity extends AppCompatActivity {
 
     }
 
-    private void writeData(String data)
-    {
-        try {
-            FileOutputStream file = openFileOutput("db.txt", MODE_APPEND);
-            OutputStreamWriter writer = new OutputStreamWriter(file);
-
-            writer.write(data);
-            writer.close();
-
-            Toast.makeText(getBaseContext(), "File Saved Successfully", Toast.LENGTH_SHORT).show();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    private  void readData()
-    {
-        try {
-            FileInputStream file = openFileInput("db.txt");
-            InputStreamReader reader = new InputStreamReader(file);
-
-            char[] inputBuffer = new char[READ_BLOCK_SIZE];
-            String s = "";
-            int charRead;
-            while ((charRead = reader.read(inputBuffer)) > 0)
-            {
-                String readstring = String.copyValueOf(inputBuffer, 0, charRead);
-                s += readstring;
-            }
-
-            reader.close();
-            Toast.makeText(getBaseContext(), s, Toast.LENGTH_SHORT).show();
-            //Log.d("DB_Text", s); //debug output
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
+    /* calls static DBMoodel to save the data into db.txt file */
     private void saveData()
     {
-        writeData("username:"+createUsername.getText().toString() +"\n"
-                    +"password:"+createPassword.getText().toString() +"\n"
-                    +"firstName:"+createFirstName.getText().toString() +"\n"
-                    +"lastName:"+createLastName.getText().toString() +"\n"
-                    +"email:"+createEmail.getText().toString() +"\n"
-                    +"age:"+createAge.getText().toString() +"\n"
-                    +"-----------------------------------" +"\n");
-
-        /*
-        writeData("password:"+createPassword.getText().toString() +"\n"); //password
-        writeData("firstName:"+createFirstName.getText().toString() +"\n"); //firstName
-        writeData("lastName:"+createLastName.getText().toString() +"\n"); //lastName
-        writeData("email:"+createEmail.getText().toString() +"\n"); //email
-        writeData("age:"+createAge.getText().toString() +"\n"); //age
-        */
+        DBModel.model.writeNewEntry(CreateUserActivity.this, "username:"+createUsername.getText().toString() +"\n"
+                +"password:"+createPassword.getText().toString() +"\n"
+                +"firstName:"+createFirstName.getText().toString() +"\n"
+                +"lastName:"+createLastName.getText().toString() +"\n"
+                +"email:"+createEmail.getText().toString() +"\n"
+                +"age:"+createAge.getText().toString() +"\n"
+                +"-----------------------------------" +"\n");
     }
 
-    /*********************************************************************/
-    /*********************************************************************/
-
-    private String readFromFile(Context context) {
-
-        String ret = "";
-
-        try {
-            InputStream inputStream = context.openFileInput("db.txt");
-
-            if ( inputStream != null ) {
-                InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                String receiveString = "";
-                StringBuilder stringBuilder = new StringBuilder();
-
-                while ( (receiveString = bufferedReader.readLine()) != null ) {
-                    stringBuilder.append(receiveString);
-                }
-
-                inputStream.close();
-                ret = stringBuilder.toString();
-            }
-        }
-        catch (FileNotFoundException e) {
-            Log.e("login activity", "File not found: " + e.toString());
-        } catch (IOException e) {
-            Log.e("login activity", "Can not read file: " + e.toString());
-        }
-
-        return ret;
+    /* call static DBModel to read and display data */
+    private void readData()
+    {
+       DBModel.model.readData(CreateUserActivity.this);
     }
 }
