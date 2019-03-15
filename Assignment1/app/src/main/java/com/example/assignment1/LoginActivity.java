@@ -50,6 +50,9 @@ public class LoginActivity extends AppCompatActivity {
                 {
                     Toast.makeText(LoginActivity.this, "Login is successful", Toast.LENGTH_SHORT).show();
                     tryCount = 0;
+
+                    Intent routeActivity = new Intent(LoginActivity.this, RouteListActivity.class);
+                    startActivity(routeActivity);
                 }
                 else if (tryCount == tryMax)
                 {
