@@ -2,6 +2,7 @@ package com.example.assignment1;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -48,11 +49,25 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (DBModel.model.DBcheckUser(LoginActivity.this, editTextUsername.getText().toString(), editTextPassword.getText().toString()))
                 {
-                    Toast.makeText(LoginActivity.this, "Login is successful", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(LoginActivity.this, "Login is successful", Toast.LENGTH_SHORT).show();
                     tryCount = 0;
 
-                    Intent routeActivity = new Intent(LoginActivity.this, RouteListActivity.class);
-                    startActivity(routeActivity);
+                    int orientation = getResources().getConfiguration().orientation;
+                    if (orientation == Configuration.ORIENTATION_LANDSCAPE)
+                    {
+                        Intent routeActivity = new Intent(LoginActivity.this, RouteListActivity_land.class);
+                        startActivity(routeActivity);
+
+                        Toast.makeText(LoginActivity.this, "Rotate Device for Portrait View", Toast.LENGTH_LONG).show();
+                    }
+                    else
+                    {
+                        Intent routeActivity = new Intent(LoginActivity.this, RouteListActivity.class);
+                        startActivity(routeActivity);
+
+                        Toast.makeText(LoginActivity.this, "Rotate Device for Landscape View", Toast.LENGTH_LONG).show();
+                    }
+
                 }
                 else if (tryCount == tryMax)
                 {

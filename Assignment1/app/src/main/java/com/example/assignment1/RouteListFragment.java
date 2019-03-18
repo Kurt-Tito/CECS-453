@@ -36,7 +36,7 @@ public class RouteListFragment extends ListFragment {
     {
         //fragment.change("Name:" + routes[position], "Location: " + details[position]);
 
-        Toast.makeText(getActivity(), "Route " +(position+1) +" selected", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getActivity(), "Route " +(position+1) +" selected", Toast.LENGTH_SHORT).show();
         //fragment.change("Name:" + routes[position], "Location: " + details[position]);
 
         pos = position;
