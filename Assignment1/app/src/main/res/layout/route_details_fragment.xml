@@ -3,21 +3,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/endgreen">
+    android:background="@color/endgreen"
+    android:id="@+id/fragment2">
 
     <TextView
+        android:textSize="18sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#008B8B"
         android:layout_marginTop="200dp"
-        android:layout_marginLeft="50dp"
+        android:layout_marginLeft="100dp"
         android:id="@+id/Name"/>
 
     <TextView
+        android:textSize="18sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#008B8B"
-        android:layout_marginLeft="50dp"
+        android:layout_marginLeft="100dp"
         android:id="@+id/Location"/>
 
 </LinearLayout>

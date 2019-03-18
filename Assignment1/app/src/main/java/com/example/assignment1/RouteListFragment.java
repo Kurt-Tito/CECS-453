@@ -1,36 +1,26 @@
 package com.example.assignment1;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class RouteListFragment extends ListFragment {
 
+    FragmentManager fragmentManager;
+    FragmentTransaction fragmentTransaction;
+
+    public static RouteDetailsFragment fragment = new RouteDetailsFragment();
+
+    public static int pos;
+
     String[] routes = new String[] {"Route 1", "Route 2", "Route 3", "Route 4", "Route 5"};
-    String[] details = new String[] {"California State University Long Beach \n"
-                                        +"AM or PM   AM \n"
-                                        +"Start      8:00 \n"
-                                        +"End        9:30",
-                                     "Carson \n"
-                                        +"AM or PM   PM \n"
-                                        +"Start      12:00 \n"
-                                        +"End        1:15 \n",
-                                     "Los Angels \n"
-                                        +"AM or PM   PM \n"
-                                        +"Start      3:45 \n"
-                                        +"End        5:00 \n",
-                                     "Bakersfield \n"
-                                        +"AM or PM   AM \n"
-                                        +"Start      8:00 \n"
-                                        +"End        8:45 \n",
-                                     "Cerritos \n"
-                                        +"AM or PM  PM \n"
-                                        +"Start     6:00 \n"
-                                        +"End       9:00 \n"};
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -44,8 +34,24 @@ public class RouteListFragment extends ListFragment {
     @Override
     public void onListItemClick(ListView I, View v, int position, long id)
     {
-        RouteDetailsFragment deets_frag = (RouteDetailsFragment)getFragmentManager().findFragmentById(R.id.fragment2);
-        deets_frag.change("Name:" + routes[position], "Location: " + details[position]);
-        getListView().setSelector(android.R.color.holo_blue_dark);
+        //fragment.change("Name:" + routes[position], "Location: " + details[position]);
+
+        Toast.makeText(getActivity(), "Route " +(position+1) +" selected", Toast.LENGTH_SHORT).show();
+        //fragment.change("Name:" + routes[position], "Location: " + details[position]);
+
+        pos = position;
+
+        fragmentManager = getActivity().getSupportFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        fragmentTransaction.add(R.id.fragmentContainer, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+
+        //fragment.change("Name:" + routes[position], "Location: " + details[position]);
+
+        //RouteDetailsFragment deets_frag = (RouteDetailsFragment)getFragmentManager().findFragmentById(R.id.fragment2);
+        //deets_frag.change("Name:" + routes[position], "Location: " + details[position]);
+        //getListView().setSelector(android.R.color.holo_blue_dark);
     }
 }
